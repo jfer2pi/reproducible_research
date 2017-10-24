@@ -1,0 +1,46 @@
+---
+title: 'Reproducible Research: Project 2'
+author: "Fernando Rodriguez"
+date: "10/23/2017"
+output: html_document
+---
+# Introduction
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+## Libraries
+
+This analysis will included the *dplyr*, *lubridate*, and *ggplot2* packages to deal easily with data, dates, and plots, respectively.
+
+```{r libraries}
+
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(data.table)
+
+```
+
+## Downloading and Loadint Files into R
+
+The code below will read the file from the given URL and will write it to the destination file.  The first if loop checks if the file is already in the directory (it is very large) and does only proceeds to download it if it is missing.  The nested if loop checks if the *storm.data* variable is in the environment, if it is, it does not read it in (again, very large size)
+```{r download}
+
+url <- "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2FStormData.csv.bz2"
+destfile <- "stormdata.csv.bz2"
+
+if(!file.exists(destfile)) {
+    download.file(url = url, destfile = destfile, method = "curl")
+    
+    if(!("storm.data" %in% ls())){
+        storm.data <- read.csv(destfile, header = TRUE)
+    }
+}
+
+storm.data <- read.csv(destfile, header = TRUE)
+
+
+```
+

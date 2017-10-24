@@ -1,0 +1,10 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/321681/440ecd2e2e8c4de2b6cfc2e712c1653e
+bundleId: https://api.rpubs.com/api/v1/document/321681/440ecd2e2e8c4de2b6cfc2e712c1653e
+url: http://rpubs.com/jfer2pi/321681
+when: 1508754552.50626

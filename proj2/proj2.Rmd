@@ -84,6 +84,7 @@ storm.econ.clean <- storm.data %>%
     filter(PROPDMG != 0 & CROPDMG != 0) %>%
     mutate(PROPDMGEXP = toupper(PROPDMGEXP), CROPDMGEXP = toupper(CROPDMGEXP))
 
-unique(storm
+unique.exps <- unique(c(unique(storm.econ.clean$PROPDMGEXP), unique(storm.econ.clean$CROPDMGEXP)))
+
 
 ```

@@ -174,7 +174,35 @@ if(!file.exists(destfile)) {
     }
 }
 
-storm.data &lt;- read.csv(destfile, header = TRUE)</code></pre>
+storm.data &lt;- read.csv(destfile, header = TRUE)
+
+storm.data &lt;- tbl_df(storm.data)</code></pre>
+<pre class="r"><code>head(storm.data)</code></pre>
+<pre><code>## # A tibble: 6 x 37
+##   STATE__           BGN_DATE BGN_TIME TIME_ZONE COUNTY COUNTYNAME  STATE
+##     &lt;dbl&gt;             &lt;fctr&gt;   &lt;fctr&gt;    &lt;fctr&gt;  &lt;dbl&gt;     &lt;fctr&gt; &lt;fctr&gt;
+## 1       1  4/18/1950 0:00:00     0130       CST     97     MOBILE     AL
+## 2       1  4/18/1950 0:00:00     0145       CST      3    BALDWIN     AL
+## 3       1  2/20/1951 0:00:00     1600       CST     57    FAYETTE     AL
+## 4       1   6/8/1951 0:00:00     0900       CST     89    MADISON     AL
+## 5       1 11/15/1951 0:00:00     1500       CST     43    CULLMAN     AL
+## 6       1 11/15/1951 0:00:00     2000       CST     77 LAUDERDALE     AL
+## # ... with 30 more variables: EVTYPE &lt;fctr&gt;, BGN_RANGE &lt;dbl&gt;,
+## #   BGN_AZI &lt;fctr&gt;, BGN_LOCATI &lt;fctr&gt;, END_DATE &lt;fctr&gt;, END_TIME &lt;fctr&gt;,
+## #   COUNTY_END &lt;dbl&gt;, COUNTYENDN &lt;lgl&gt;, END_RANGE &lt;dbl&gt;, END_AZI &lt;fctr&gt;,
+## #   END_LOCATI &lt;fctr&gt;, LENGTH &lt;dbl&gt;, WIDTH &lt;dbl&gt;, F &lt;int&gt;, MAG &lt;dbl&gt;,
+## #   FATALITIES &lt;dbl&gt;, INJURIES &lt;dbl&gt;, PROPDMG &lt;dbl&gt;, PROPDMGEXP &lt;fctr&gt;,
+## #   CROPDMG &lt;dbl&gt;, CROPDMGEXP &lt;fctr&gt;, WFO &lt;fctr&gt;, STATEOFFIC &lt;fctr&gt;,
+## #   ZONENAMES &lt;fctr&gt;, LATITUDE &lt;dbl&gt;, LONGITUDE &lt;dbl&gt;, LATITUDE_E &lt;dbl&gt;,
+## #   LONGITUDE_ &lt;dbl&gt;, REMARKS &lt;fctr&gt;, REFNUM &lt;dbl&gt;</code></pre>
+</div>
+<div id="question-1" class="section level2">
+<h2>Question 1</h2>
+<p>Across the United States, which types of events (as indicated in the 𝙴𝚅𝚃𝚈𝙿𝙴 variable) are most harmful with respect to population health?</p>
+</div>
+<div id="question-2" class="section level2">
+<h2>Question 2</h2>
+<p>Across the United States, which types of events have the greatest economic consequences?</p>
 </div>
 </div>
 

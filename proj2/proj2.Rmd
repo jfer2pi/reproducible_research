@@ -85,6 +85,25 @@ storm.econ.clean <- storm.data %>%
     mutate(PROPDMGEXP = toupper(PROPDMGEXP), CROPDMGEXP = toupper(CROPDMGEXP))
 
 unique.exps <- unique(c(unique(storm.econ.clean$PROPDMGEXP), unique(storm.econ.clean$CROPDMGEXP)))
+multiplier <- c(10^9, 10^6, 10^3, 10, 10, 1, 10)
+
+unique.multipliers <- cbind(Unique = unique.exps, Multiplier = as.numeric(multiplier))
+
+storm.econ.clean.mult1 <-  merge(storm.econ.clean, unique.multipliers, by.x = "CROPDMGEXP", by.y = "Unique")
+storm.econ.clean.mult2 <- merge(storm.econ.clean.mult1, unique.multipliers, by.x = "PROPDMGEXP", by.y = "Unique")
+
+storm.damages <- storm.econ.clean.mult2 %>% 
+    group_by(EVTYPE) %>%
+    mutate(crop.damages = CROPDMG * as.numeric(Multiplier.x), 
+           prop.damages = PROPDMG * as.numeric(Multiplier.y), 
+           tot.damages = crop.damages + prop.damages) %>% 
+    summarize(crop.damages  = sum(crop.damages), 
+              prop.damages = sum(prop.damages), 
+              tot.damages = prop.damages + crop.damages) %>%
+    arrange(desc(tot.damages))
+    
+
+
 
 
 ```
